@@ -22,7 +22,8 @@ module.exports = {
             'es2015' 
           ] 
         }
-      }
+      },
+      { test: /\.handlebars$/, loader: "handlebars-loader" }
     ]
   }
 };
