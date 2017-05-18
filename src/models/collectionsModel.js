@@ -9,6 +9,7 @@ export default class CollectionsModel {
   recieveCollections(collections=[],page=1){
   	this.collections=collections;
   	this.page=page;
+	this.NotifySubscribers();
   }
 
   addListener(listener){

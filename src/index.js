@@ -1,8 +1,9 @@
-import All from './controllers/collectionsList'
 import { fetchFromUnsplash } from './helpers'
+import collectionsController from './controllers/collectionsController'
 
+collectionsController();
 
-fetchFromUnsplash("https://api.unsplash.com/photos?page=1",null,null,{headers:{someHeader:"some value"}});
+//fetchFromUnsplash("https://api.unsplash.com/photos?page=1",null,null,{headers:{someHeader:"some value"}});
 
 //alert("fuck yeah");
 /*

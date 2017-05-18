@@ -1,5 +1,0 @@
-<div id="collections">
-  {{#each collections}}
-  <div>{{title}}</div>
-  {{/each}}
-</div>

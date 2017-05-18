@@ -1,5 +1,14 @@
-<div id="collections">
+<div class="collections-wrapper">
   {{#each collections}}
-  <div>{{title}}</div>
+  <div  class="collection">
+  <a href="{{id}}" class="collection__link">  
+	<h2 class="collection__title">{{title}}</h2>
+	<img class="collection__image" src="{{cover_photo.urls.small}}">
+  </a>
+  </div>
   {{/each}}
+</div>
+
+<div class="pages-wrapper">
+	{{page page}}
 </div>
