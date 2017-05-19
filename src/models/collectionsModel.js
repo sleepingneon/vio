@@ -1,25 +1,19 @@
-export default class CollectionsModel {
+import BaseModel from './baseModel'
+
+export default class CollectionsModel extends BaseModel
+{
 
   constructor() {
-	this.collections=[];
-	this.page=1;
-	this.listeners=[];
+    super();
+    this.collections=[];
+    this.page=1;
+
   }
 
   recieveCollections(collections=[],page=1){
   	this.collections=collections;
   	this.page=page;
-	this.NotifySubscribers();
-  }
-
-  addListener(listener){
-  	this.listeners.push(listener);
-  }
-
-  NotifySubscribers() {
-    for(let i=0;i<this.listeners.length;i++){
-    	this.listeners[i](this);
-    }
-  }
+    this.NotifySubscribers();
+ }
 
 }

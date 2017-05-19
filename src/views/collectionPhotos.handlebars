@@ -1,0 +1,15 @@
+<div class="back-wrapper">
+	<a href="{{parentPage}}" class="button back-button">Back to collections</a>
+</div>
+
+<h2 class="title">{{ title }}</h2>
+
+<div class="photos-wrapper">
+  {{#each photos}}
+  <div  class="photo-item">
+  <a href="{{id}}" class="photo-item__link">  	
+	<img class="photo-item__image" src="{{urls.small}}">
+  </a>
+  </div>
+  {{/each}}
+</div>
