@@ -2,6 +2,7 @@
 var Handlebars=require('handlebars/runtime');
 var template = require("./collectionPhotos.handlebars");
 import collectionsController from '../controllers/collectionsController'
+import detailedPhotoController from '../controllers/detailedPhotoController'
 
 
 module.exports = (model)=>{	
@@ -11,21 +12,22 @@ module.exports = (model)=>{
 	root.innerHTML = html;
 
 
-var photosLinks=document.getElementsByClassName("photo-item__link");
-for(let i=0;i<photosLinks.length;i++){
-	photosLinks[i].onclick=(event)=>{
-		event.preventDefault();
-		var photoId=photosLinks[i].closest('.photo-item__link').getAttribute("href");
-
+	var photosLinks=document.getElementsByClassName("photo-item__link");
+	for(let i=0;i<photosLinks.length;i++){
+		photosLinks[i].onclick=(event)=>{
+			event.preventDefault();
+			var photoId=photosLinks[i].closest('.photo-item__link').getAttribute("href");
+			detailedPhotoController(photoId,model.collectionId);
+		}
 	}
-}
 
-var backButton=document.getElementsByClassName("back-button")[0];
+	var backButton=document.getElementsByClassName("back-button")[0];
 
-	backButton.onclick=function(event){
+	backButton.onclick=function(event){		
 		event.preventDefault();
-		let pageToMoveTo=backButton.getAttribute("href");
-		collectionsController(pageToMoveTo);
+		alert("Back pressed!");
+		//let pageToMoveTo=backButton.getAttribute("href");
+		collectionsController(model.parentPage);
 	}
 
 }

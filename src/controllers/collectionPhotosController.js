@@ -10,7 +10,7 @@ export default (collectionId=0,title="untitled",parentPage=1) => {
 	fetchFromUnsplash(
 		`/collections/${collectionId}/photos`,
 		(photos)=>{
-			collectionPhotosModel.recievePhotos(photos,title,parentPage);
+			collectionPhotosModel.recievePhotos(photos,title,collectionId,parentPage);
 		},
 		(error)=>alert(error)
 	);

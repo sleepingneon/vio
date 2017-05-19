@@ -1,0 +1,10 @@
+<div class="back-wrapper">
+	<a href="{{parentCollectionId}}" class="button back-button">Back to collection</a>
+</div>
+
+{{ifDefined "City" photo.location.city }}
+{{ifDefined "Country" photo.location.country }}
+
+<div class="photo-wrapper"> 	
+	<img class="photo" src="{{photo.urls.regular}}">
+</div>
