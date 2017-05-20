@@ -6,7 +6,7 @@ import detailedPhotoController from '../controllers/detailedPhotoController'
 
 
 module.exports = (model)=>{	
-	console.log(model);
+
 	let html=template(model);
 	let root=document.getElementById("root");
 	root.innerHTML = html;
@@ -17,7 +17,7 @@ module.exports = (model)=>{
 		photosLinks[i].onclick=(event)=>{
 			event.preventDefault();
 			var photoId=photosLinks[i].closest('.photo-item__link').getAttribute("href");
-			detailedPhotoController(photoId,model.collectionId);
+			detailedPhotoController(photoId);
 		}
 	}
 
@@ -25,9 +25,8 @@ module.exports = (model)=>{
 
 	backButton.onclick=function(event){		
 		event.preventDefault();
-		alert("Back pressed!");
 		//let pageToMoveTo=backButton.getAttribute("href");
-		collectionsController(model.parentPage);
+		collectionsController(model.navigation.page);
 	}
 
 }

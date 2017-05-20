@@ -16,7 +16,7 @@ Handlebars.registerHelper('page', function(text) {
 });
 
 module.exports = (model)=>{	
-	console.log(model);
+
 	let html=template(model);
 	let root=document.getElementById("root");
 	root.innerHTML = html;
@@ -31,7 +31,7 @@ for(let i=0;i<collectionsLinks.length;i++){
 
 		let title=link.getElementsByClassName("collection__title")[0].innerHTML;
 
-		collectionPhotosController(collectionId,title,model.page);
+		collectionPhotosController(collectionId,title);
 	}
 }
 

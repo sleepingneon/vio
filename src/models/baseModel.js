@@ -1,17 +1,23 @@
 export default class BaseModel {
 
    constructor() {
-     this.listeners=[];
+	   this.navigation={};
+     this.renderer=()=>{};
+   }
+   
+   //добавить навигацию к модели (не вызывает перерисовку)
+   setNavigation(navigation){
+	   this.navigation=navigation;
    }
 
-   addListener(listener){
-     this.listeners.push(listener);
+  //задать в контроллере отрисовщик (представление)
+   setRenderer(renderer){
+     this.renderer=renderer;
    }
 
-   NotifySubscribers() {
-    for(let i=0;i<this.listeners.length;i++){
-     this.listeners[i](this);
-   }
+  //вызвать представление с моделью
+   render() {
+    this.renderer(this);   
   }
 
 }

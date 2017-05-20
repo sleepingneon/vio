@@ -1,24 +1,21 @@
-import {fetchFromUnsplash}from '../helpers'
+import {fetchFromUnsplash, navigation }from '../helpers'
 import CollectionPhotosModel from '../models/collectionPhotosModel'
 import collectionPhotosView from '../views/collectionPhotosView'
 
-export default (collectionId=0,title="untitled",parentPage=1) => {
+export default (collectionId=0,title="") => {
 	const collectionPhotosModel=new CollectionPhotosModel();
 
-	collectionPhotosModel.addListener((model)=>collectionPhotosView(model));
+	collectionPhotosModel.setRenderer((model)=>collectionPhotosView(model));
 	
 	fetchFromUnsplash(
 		`/collections/${collectionId}/photos`,
 		(photos)=>{
-			collectionPhotosModel.recievePhotos(photos,title,collectionId,parentPage);
+			navigation.collection=collectionId;
+			navigation.collectionTitle=title;
+			collectionPhotosModel.setNavigation(navigation);
+			collectionPhotosModel.recievePhotos(photos);
 		},
-		(error)=>alert(error)
+		(error)=>{alert(error);}
 	);
 
-
-
-
-	
-	
-	//let model=
 }

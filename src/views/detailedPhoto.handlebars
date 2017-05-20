@@ -1,9 +1,20 @@
 <div class="back-wrapper">
-	<a href="{{parentCollectionId}}" class="button back-button">Back to collection</a>
+	<a href="{{ navigation.collection }}" class="button back-button">Back to collection</a>
 </div>
 
-{{ifDefined "City" photo.location.city }}
-{{ifDefined "Country" photo.location.country }}
+<div class="photo-info">
+
+<div>
+	{{ifDefined "City" photo.location.city }}
+	{{ifDefined "Country" photo.location.country }}
+</div>
+
+<div>
+	{{date photo.created_at}}
+	<p>Viewed: {{photo.views}}</p>
+</div>
+
+</div>
 
 <div class="photo-wrapper"> 	
 	<img class="photo" src="{{photo.urls.regular}}">

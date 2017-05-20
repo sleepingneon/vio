@@ -1,4 +1,3 @@
-//import { Handlebars } from 'handlebars'
 var Handlebars=require('handlebars/runtime');
 var template = require("./detailedPhoto.handlebars");
 import collectionPhotosController from '../controllers/collectionPhotosController'
@@ -12,19 +11,23 @@ Handlebars.registerHelper('ifDefined', function(label, value) {
 
 });
 
+Handlebars.registerHelper('date', function(value) {
+		value=(new Date(value)).toDateString();
+		return new Handlebars.SafeString("<p>Date: "+value+"</p>");  
+});
+
 module.exports = (model)=>{	
-	console.log(model);
+
 	let html=template(model);
 	let root=document.getElementById("root");
 	root.innerHTML = html;
 
+	document.getElementsByClassName("photo-wrapper")[0].style.backgroundColor=model.photo.color;
 
 	var backButton=document.getElementsByClassName("back-button")[0];
-	console.log(backButton);
 	backButton.onclick=function(event){
 		event.preventDefault();
-		//let pageToMoveTo=backButton.getAttribute("href");
-		collectionPhotosController(model.parentCollectionId);
+		collectionPhotosController(model.navigation.collection,model.navigation.collectionTitle);
 	}
 }
 

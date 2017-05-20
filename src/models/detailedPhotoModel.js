@@ -6,14 +6,11 @@ export default class DetailedPhotoModel extends BaseModel
   constructor() {
     super();
     this.photo={};
-    this.parentCollectionId="";
-
   }
 
-  recievePhoto(photo=[],parentCollectionId=""){
+  recievePhoto(photo={}){
   	this.photo=photo;
-  	this.parentCollectionId=parentCollectionId;
-    this.NotifySubscribers();
+    this.render();
  }
 
 }

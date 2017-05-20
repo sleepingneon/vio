@@ -6,14 +6,11 @@ export default class CollectionsModel extends BaseModel
   constructor() {
     super();
     this.collections=[];
-    this.page=1;
-
   }
 
-  recieveCollections(collections=[],page=1){
+  recieveCollections(collections){
   	this.collections=collections;
-  	this.page=page;
-    this.NotifySubscribers();
+    this.render();
  }
 
 }

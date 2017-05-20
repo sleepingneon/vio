@@ -62,3 +62,18 @@
 .title{
 	font-size: 2em;
 }
+
+.photo-wrapper{
+	margin:10px;
+	padding:20px;
+	text-align:center;
+}
+
+.photo-info{
+	display:flex;
+	justify-content:space-between;
+}
+
+.photo{
+	width: 100%;
+}
